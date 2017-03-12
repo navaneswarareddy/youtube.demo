@@ -17,4 +17,4 @@ trigger createcontact on Account (After Insert)
       Insert lstcon;
    }
 }
-g
+creatby naveen
