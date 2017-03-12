@@ -1,0 +1,20 @@
+trigger createcontact on Account (After Insert) 
+{
+   List<Contact> lstcon = New List<contact>();
+   For(Account Acc : Trigger.New)
+   {
+      Contact Con = New Contact();
+      Con.Lastname = Acc.Name +'Test';  
+      Con.Accountid = Acc.id;
+      Con.Email     = UserInfo.getUserEmail();
+
+
+      lstcon.Add(Con);
+   }
+   
+   If(lstcon.Size()!= Null)
+   {
+      Insert lstcon;
+   }
+}
+g
